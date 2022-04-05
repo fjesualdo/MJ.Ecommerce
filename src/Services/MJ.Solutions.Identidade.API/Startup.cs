@@ -1,19 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MJ.Solutions.Identidade.API.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MJ.Solutions.Identidade.API
 {
@@ -37,19 +31,31 @@ namespace MJ.Solutions.Identidade.API
 				.AddDefaultTokenProviders();
 
 			services.AddControllers();
+
 			services.AddSwaggerGen(c =>
 			{
-				c.SwaggerDoc("v1", new OpenApiInfo { Title = "MJ.Solutions.Identidade.API", Version = "v1" });
+				c.SwaggerDoc("v1", new OpenApiInfo
+				{
+					Title = "MJ Solutions Identity API",
+					Description = "Esta API faz o gerenciamento de usuários do sistema.",
+					Contact = new OpenApiContact() { Name = "Marcel Jesualdo", Email = "fjesualdo@contato#gmail.com" },
+					License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
+				});
 			});
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
+			app.UseSwagger();
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "v1");
+			});
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
-				app.UseSwagger();
-				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MJ.Solutions.Identidade.API v1"));
+
 			}
 
 			app.UseHttpsRedirection();

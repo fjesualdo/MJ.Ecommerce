@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace MJ.Solutions.Identidade.API.Controllers
 {
+	[ApiController]
 	[Route("api/identidade")]
 	public class IdentidadeController : Controller
 	{
@@ -41,11 +42,11 @@ namespace MJ.Solutions.Identidade.API.Controllers
 		}
 
 		[HttpPost("autenticar")]
-		public async Task<ActionResult> Login(UsuarioRegistro usuarioRegistro)
+		public async Task<ActionResult> Login(UsuarioLogin usuarioLogin)
 		{
 			if (!ModelState.IsValid) return BadRequest();
 
-			var result = await _signInManager.PasswordSignInAsync(userName: usuarioRegistro.Email, password: usuarioRegistro.Senha, isPersistent: false, lockoutOnFailure: true);
+			var result = await _signInManager.PasswordSignInAsync(userName: usuarioLogin.Email, password: usuarioLogin.Senha, isPersistent: false, lockoutOnFailure: true);
 
 			if (result.Succeeded)
 			{

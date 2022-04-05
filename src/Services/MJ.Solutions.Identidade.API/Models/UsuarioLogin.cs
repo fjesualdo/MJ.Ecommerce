@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NSE.Identidade.API.Models
+namespace MJ.Solutions.Identidade.API.Models
 {
 	public class UsuarioLogin
 	{
