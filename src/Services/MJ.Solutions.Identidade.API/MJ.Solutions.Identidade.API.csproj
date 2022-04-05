@@ -28,6 +28,5 @@
 
 	<ItemGroup>
 	  <Folder Include="Configuration\" />
-	  <Folder Include="Extensions\" />
 	</ItemGroup>
 </Project>
