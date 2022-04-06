@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Services\" />
-    <Folder Include="Views\Identidade\" />
   </ItemGroup>
 
 </Project>
