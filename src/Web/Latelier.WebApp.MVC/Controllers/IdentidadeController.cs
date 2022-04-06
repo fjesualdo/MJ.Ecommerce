@@ -1,4 +1,5 @@
 ﻿using Latelier.WebApp.MVC.Models;
+using Latelier.WebApp.MVC.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -6,6 +7,13 @@ namespace Latelier.WebApp.MVC.Controllers
 {
 	public class IdentidadeController : Controller
 	{
+		private readonly IAutenticacaoService _autenticacaoService;
+
+		public IdentidadeController(IAutenticacaoService autenticacaoService)
+		{
+			_autenticacaoService = autenticacaoService;
+		}
+
 		[HttpGet]
 		[Route("nova-conta")]
 		public IActionResult Registro()
@@ -21,7 +29,7 @@ namespace Latelier.WebApp.MVC.Controllers
 
 			// API - Login
 
-			if (false) return View(usuarioRegistro);
+			var resposta = await _autenticacaoService.Registro(usuarioRegistro);
 
 			// Realizar login na APP
 
@@ -44,7 +52,7 @@ namespace Latelier.WebApp.MVC.Controllers
 
 			// API - Login
 
-			if (false) return View(usuarioLogin);
+			var resposta = await _autenticacaoService.Login(usuarioLogin);
 
 			// Realizar login na APP
 
