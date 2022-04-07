@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Latelier.WebApp.MVC.Controllers
 {
-	public class IdentidadeController : Controller
+	public class IdentidadeController : MainController
 	{
 		private readonly IAutenticacaoService _autenticacaoService;
 
@@ -33,10 +33,10 @@ namespace Latelier.WebApp.MVC.Controllers
 		{
 			if (!ModelState.IsValid) return View(usuarioRegistro);
 
-			// API - Login
 			var resposta = await _autenticacaoService.Registro(usuarioRegistro);
 
-			// Realizar login na APP
+			if (ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioRegistro);
+			
 			await RealizarLogin(resposta);
 
 			return RedirectToAction("Index", "Home");
@@ -56,10 +56,10 @@ namespace Latelier.WebApp.MVC.Controllers
 		{
 			if (!ModelState.IsValid) return View(usuarioLogin);
 
-			// API - Login
 			var resposta = await _autenticacaoService.Login(usuarioLogin);
 
-			// Realizar login na APP
+			if (ResponsePossuiErros(resposta.ResponseResult)) return View(usuarioLogin);
+
 			await RealizarLogin(resposta);
 
 			return RedirectToAction("Index", "Home");
