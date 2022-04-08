@@ -33,6 +33,9 @@ namespace MJ.Solutions.Identidade.API.Controllers
 		[HttpPost("nova-conta")]
 		public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
 		{
+
+			return new StatusCodeResult(statusCode: 401);
+
 			if (!ModelState.IsValid) return CustomResponse(ModelState);
 
 			var user = new IdentityUser
