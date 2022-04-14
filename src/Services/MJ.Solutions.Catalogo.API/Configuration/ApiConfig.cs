@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MJ.Solutions.Catalogo.API.Data;
-
+using MJ.Solutions.WebAPI.Core.Identidade;
 
 namespace MJ.Solutions.Catalogo.API.Configuration
 {
@@ -42,7 +42,7 @@ namespace MJ.Solutions.Catalogo.API.Configuration
 
 			app.UseCors("Total");
 
-			//app.UseAuthConfiguration();
+			app.UseAuthConfiguration();
 
 			app.UseEndpoints(endpoints =>
 			{

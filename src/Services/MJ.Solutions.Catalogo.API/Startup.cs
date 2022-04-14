@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MJ.Solutions.Catalogo.API.Configuration;
+using MJ.Solutions.WebAPI.Core.Identidade;
 
 namespace MJ.Solutions.Catalogo.API
 {
@@ -30,6 +31,8 @@ namespace MJ.Solutions.Catalogo.API
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddApiConfiguration(Configuration);
+
+			services.AddJwtConfiguration(Configuration);
 
 			services.AddSwaggerConfiguration();
 

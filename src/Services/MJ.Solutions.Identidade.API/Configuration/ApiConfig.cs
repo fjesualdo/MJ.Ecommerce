@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using MJ.Solutions.WebAPI.Core.Identidade;
 
 namespace MJ.Solutions.Identidade.API.Configuration
 {
@@ -26,7 +26,7 @@ namespace MJ.Solutions.Identidade.API.Configuration
 
       app.UseRouting();
 
-      app.UseIdentityConfiguration();
+      app.UseAuthConfiguration();
 
       app.UseEndpoints(endpoints =>
       {

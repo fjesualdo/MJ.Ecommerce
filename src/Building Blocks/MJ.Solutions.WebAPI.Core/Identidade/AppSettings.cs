@@ -1,4 +1,4 @@
-﻿namespace MJ.Solutions.Identidade.API.Extensions
+﻿namespace MJ.Solutions.WebAPI.Core.Identidade
 {
 	public class AppSettings
 	{
