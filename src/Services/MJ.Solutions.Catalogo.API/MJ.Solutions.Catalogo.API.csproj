@@ -2,24 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>11536165-020f-42f5-9f12-d79baa97dd8a</UserSecretsId>
+    <UserSecretsId>146826f1-cf54-42e3-9e9c-f12144afb4ca</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.0" />
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.15" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.15" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.15" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.15" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
-		
-  </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Building Blocks\Core\MJ.Solutions.Core\MJ.Solutions.Core.csproj" />
-  </ItemGroup>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Building Blocks\MJ.Solutions.Core\MJ.Solutions.Core.csproj" />
+	</ItemGroup>
 
 </Project>

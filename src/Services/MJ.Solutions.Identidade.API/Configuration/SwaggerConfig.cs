@@ -14,9 +14,9 @@ namespace MJ.Solutions.Identidade.API.Configuration
       {
         c.SwaggerDoc("v1", new OpenApiInfo()
         {
-          Title = "NerdStore Enterprise Identity API",
-          Description = "Esta API faz parte do curso ASP.NET Core Enterprise Applications.",
-          Contact = new OpenApiContact() { Name = "Eduardo Pires", Email = "contato@desenvolvedor.io" },
+          Title = "MJ-Solutions Identity API",
+          Description = "API destinada a controle de acesso de usuário, bem como acesso e permissões.",
+          Contact = new OpenApiContact() { Name = "Marcelo Jesualdo", Email = "contato@mjsolutions.com" },
           License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
         });
 

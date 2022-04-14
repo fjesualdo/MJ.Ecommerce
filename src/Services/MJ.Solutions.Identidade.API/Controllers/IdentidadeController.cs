@@ -34,7 +34,7 @@ namespace MJ.Solutions.Identidade.API.Controllers
 		public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
 		{
 
-			return new StatusCodeResult(statusCode: 403);
+			//return new StatusCodeResult(statusCode: 403);
 
 			if (!ModelState.IsValid) return CustomResponse(ModelState);
 
