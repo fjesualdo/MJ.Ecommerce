@@ -11,7 +11,10 @@ namespace Latelier.WebApp.MVC.Configuration
 		{
 			services.AddHttpClient<IAutenticacaoService, AutenticacaoService>();
 
+			services.AddHttpClient<ICatalogoService, CatalogoService>();
+
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 			services.AddScoped<IUser, AspNetUser>();
 		}
 	}
