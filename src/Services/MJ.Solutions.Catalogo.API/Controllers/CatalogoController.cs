@@ -30,6 +30,7 @@ namespace MJ.Solutions.Catalogo.API.Controllers
 		[HttpGet("catalogo/produtos/{id}")]
 		public async Task<Produto> ProdutoDetalhe(Guid id)
 		{
+			throw new Exception("JESUALDO JESUALDO JESUALDO JESUALDO JESUALDO ----------->>>>>>>>>>>>>>>>> Erro!");
 			return await _produtoRepository.ObterPorId(id);
 		}
 	}
