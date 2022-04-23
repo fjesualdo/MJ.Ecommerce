@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MJ.Solutions.Clientes.API.Data;
-using MJ.Solutions.Clientes.API.Data.Repository;
-using MJ.Solutions.Clientes.API.Models;
+﻿using FluentValidation.Results;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using MJ.Solutions.Clientes.API.Application.Commands;
+using MJ.Solutions.Core.Mediator;
 
 namespace MJ.Solutions.Clientes.API.Configuration
 {
@@ -9,8 +10,8 @@ namespace MJ.Solutions.Clientes.API.Configuration
 	{
 		public static void RegisterServices(this IServiceCollection services)
 		{
-			services.AddScoped<IClienteRepository, ClienteRepository>();
-			services.AddScoped<ClientesContext>();
+			services.AddScoped<IMediatorHandler, MediatorHandler>();
+			services.AddScoped<IRequestHandler<RegistrarClienteCommand, ValidationResult>, ClienteCommandHandler>();
 		}
 	}
 }
