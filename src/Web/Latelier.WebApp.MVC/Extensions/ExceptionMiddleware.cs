@@ -33,7 +33,7 @@ namespace Latelier.WebApp.MVC.Extensions
 			{
 				HandleRequestExceptionAsync(httpContext, ex.StatusCode);
 			}
-			catch		(BrokenCircuitException ex)
+			catch		(BrokenCircuitException)
 			{
 				HandleCircuitBreakerExceptionAsync(httpContext);
 			}

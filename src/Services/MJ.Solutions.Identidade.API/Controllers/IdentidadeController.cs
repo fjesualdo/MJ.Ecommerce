@@ -22,9 +22,7 @@ namespace MJ.Solutions.Identidade.API.Controllers
 		private readonly UserManager<IdentityUser> _userManager;
 		private readonly AppSettings _appSettings;
 
-		public IdentidadeController(SignInManager<IdentityUser> signInManager,
-																UserManager<IdentityUser> userManager,
-																IOptions<AppSettings> appSettings)
+		public IdentidadeController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IOptions<AppSettings> appSettings)
 		{
 			_signInManager = signInManager;
 			_userManager = userManager;
@@ -34,9 +32,6 @@ namespace MJ.Solutions.Identidade.API.Controllers
 		[HttpPost("nova-conta")]
 		public async Task<ActionResult> Registrar(UsuarioRegistro usuarioRegistro)
 		{
-
-			//return new StatusCodeResult(statusCode: 403);
-
 			if (!ModelState.IsValid) return CustomResponse(ModelState);
 
 			var user = new IdentityUser
@@ -66,8 +61,7 @@ namespace MJ.Solutions.Identidade.API.Controllers
 		{
 			if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-			var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha,
-					false, true);
+			var result = await _signInManager.PasswordSignInAsync(usuarioLogin.Email, usuarioLogin.Senha, false, true);
 
 			if (result.Succeeded)
 			{

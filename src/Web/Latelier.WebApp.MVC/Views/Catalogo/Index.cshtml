@@ -28,16 +28,12 @@
 									</a>
 
 									<small class="card-text">
-
-										<!-- Removi -->
-
-									@produto.Descricao
+										@this.MensagemEstoque(produto.QuantidadeEstoque)<br /><br />
+										@produto.Descricao
 									</small>
 								</figcaption>
 								<div class="card-footer price mt-1">
-
-									<!-- Removi -->
-
+									@this.FormatoMoeda(produto.Valor)<br /><br />
 								</div>
 							</div>
 						</div>
