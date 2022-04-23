@@ -1,7 +1,7 @@
 ﻿using MJ.Solutions.Core.DomainObjects;
 using System;
 
-namespace MJ.Solutions.Cliente.API.Models
+namespace MJ.Solutions.Clientes.API.Models
 {
 	public class Endereco : Entity
 	{
