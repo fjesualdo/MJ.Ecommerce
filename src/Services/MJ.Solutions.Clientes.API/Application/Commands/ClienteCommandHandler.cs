@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using MediatR;
+using MJ.Solutions.Clientes.API.Application.Events;
 using MJ.Solutions.Clientes.API.Models;
 using MJ.Solutions.Core.Messages;
 using System.Threading;
@@ -32,6 +33,8 @@ namespace MJ.Solutions.Clientes.API.Application.Commands
 			}
 
 			_clienteRepository.Adicionar(cliente);
+
+			cliente.AdicionarEvento(new ClienteRegistradoEvent(message.Id, message.Nome, message.Email, message.Cpf));
 
 			return await PersistirDados(_clienteRepository.UnitOfWork);
 		}
