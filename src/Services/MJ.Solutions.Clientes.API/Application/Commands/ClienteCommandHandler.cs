@@ -23,17 +23,17 @@ namespace MJ.Solutions.Clientes.API.Application.Commands
 
 			var cliente = new Cliente(message.Id, message.Nome, message.Email, message.Cpf);
 
-			// Validações de negócio
+			var clienteExistente = await _clienteRepository.ObterPorCpf(cliente.Cpf.Numero);
 
-			// Persistir no banco
-
-			if (true)
+			if (clienteExistente != null)
 			{
-				AdicionarErro(mensagem: "Este CPF já está em uso.");
+				AdicionarErro("Este CPF já está em uso.");
 				return ValidationResult;
 			}
 
-			return message.ValidationResult;
+			_clienteRepository.Adicionar(cliente);
+
+			return await PersistirDados(_clienteRepository.UnitOfWork);
 		}
 	}
 }
