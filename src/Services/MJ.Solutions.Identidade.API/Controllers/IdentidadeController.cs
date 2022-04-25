@@ -26,12 +26,11 @@ namespace MJ.Solutions.Identidade.API.Controllers
 
 		private IBus _bus;
 
-		public IdentidadeController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IOptions<AppSettings> appSettings, IBus bus)
+		public IdentidadeController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, IOptions<AppSettings> appSettings)
 		{
 			_signInManager = signInManager;
 			_userManager = userManager;
 			_appSettings = appSettings.Value;
-			_bus = bus;
 		}
 
 		[HttpPost("nova-conta")]

@@ -6,6 +6,7 @@ using MJ.Solutions.Clientes.API.Application.Events;
 using MJ.Solutions.Clientes.API.Data;
 using MJ.Solutions.Clientes.API.Data.Repository;
 using MJ.Solutions.Clientes.API.Models;
+using MJ.Solutions.Clientes.API.Services;
 using MJ.Solutions.Core.Mediator;
 
 namespace MJ.Solutions.Clientes.API.Configuration
@@ -22,6 +23,8 @@ namespace MJ.Solutions.Clientes.API.Configuration
 
 			services.AddScoped<IClienteRepository, ClienteRepository>();
 			services.AddScoped<ClientesContext>();
+
+			services.AddHostedService<RegistroClienteIntegrationHandler>();
 		}
 	}
 }
