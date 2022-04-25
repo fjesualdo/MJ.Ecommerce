@@ -27,3 +27,35 @@ FluentValidation
 ======================================
 url: 
 
+======================================
+RabbitMQ
+======================================
+url: https://www.rabbitmq.com/
+cmd/> docker run -d --hostname rabbit-host --name rabbit-latelier -p 15672:15672 -p 5672:5672 rabbitmq:management
+
+======================================
+EasyNetQ
+======================================
+url:https://easynetq.com/
+
+======================================
+dockerhub
+======================================
+url: https://hub.docker.com/_/rabbitmq
+cmd/> docker run -d --hostname rabbit-host --name rabbit-latelier -p 15672:15672 -p 5672:5672 rabbitmq:management
+
+http://localhost:15672
+guest
+guest
+
+======================================
+portainer.io
+======================================
+url: https://www.portainer.io/
+
+
+
+
+
+
+
