@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MJ.Solutions.Identidade.API.Extensions;
 using MJ.Solutions.Identidade.API.Models;
+using MJ.Solutions.WebAPI.Core.Controllers;
 using MJ.Solutions.WebAPI.Core.Identidade;
 using System;
 using System.Collections.Generic;

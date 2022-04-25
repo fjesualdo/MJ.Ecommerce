@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MJ.Solutions.Catalogo.API.Models;
+using MJ.Solutions.WebAPI.Core.Controllers;
 using MJ.Solutions.WebAPI.Core.Identidade;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace MJ.Solutions.Catalogo.API.Controllers
 {
-	[ApiController]
 	[Authorize]
-	public class CatalogoController : Controller
+	public class CatalogoController : MainController
 	{
 		private readonly IProdutoRepository _produtoRepository;
 
