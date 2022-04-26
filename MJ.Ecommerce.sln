@@ -45,6 +45,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MJ.Solutions.WebAPI.Core", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MJ.Solutions.Clientes.API", "src\Services\MJ.Solutions.Clientes.API\MJ.Solutions.Clientes.API.csproj", "{2BF6AB54-8856-4A25-AC69-E8AA671FC5DF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessageBus", "MessageBus", "{3C3BAC42-8EAC-43F1-9BDF-4F05C97FF028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJ.Solutions.MessageBus", "src\Building Blocks\MJ.Solutions.MessageBus\MJ.Solutions.MessageBus.csproj", "{38837D2E-37A6-46A3-BB13-9B5F8D0C72D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,10 @@ Global
 		{2BF6AB54-8856-4A25-AC69-E8AA671FC5DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BF6AB54-8856-4A25-AC69-E8AA671FC5DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BF6AB54-8856-4A25-AC69-E8AA671FC5DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38837D2E-37A6-46A3-BB13-9B5F8D0C72D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38837D2E-37A6-46A3-BB13-9B5F8D0C72D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38837D2E-37A6-46A3-BB13-9B5F8D0C72D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38837D2E-37A6-46A3-BB13-9B5F8D0C72D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,6 +120,8 @@ Global
 		{8E7A3833-1207-48FC-B2F4-717BAD23835D} = {45494BDD-2158-4798-AC0B-792D903F2E8F}
 		{CD6B4BF0-44EE-4864-8902-8542CDD1936F} = {8E7A3833-1207-48FC-B2F4-717BAD23835D}
 		{2BF6AB54-8856-4A25-AC69-E8AA671FC5DF} = {5A8D8438-DFCB-48FC-8C7C-008314BED846}
+		{3C3BAC42-8EAC-43F1-9BDF-4F05C97FF028} = {45494BDD-2158-4798-AC0B-792D903F2E8F}
+		{38837D2E-37A6-46A3-BB13-9B5F8D0C72D8} = {3C3BAC42-8EAC-43F1-9BDF-4F05C97FF028}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B17EF77-6640-4AC9-B229-6843983A6EAB}
