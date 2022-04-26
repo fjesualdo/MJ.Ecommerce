@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MJ.Solutions.Clientes.API.Configuration;
 using MJ.Solutions.WebAPI.Core.Identidade;
+using MJ.Solutons.Clientes.API.Configuration;
 
 namespace MJ.Solutions.Clientes.API
 {
@@ -40,6 +41,8 @@ namespace MJ.Solutions.Clientes.API
 			services.AddMediatR(typeof(Startup));
 
 			services.RegisterServices();
+
+			services.AddMessageBusConfiguration(Configuration);
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
