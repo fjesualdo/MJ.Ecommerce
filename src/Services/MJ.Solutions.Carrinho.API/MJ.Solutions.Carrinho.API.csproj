@@ -21,9 +21,4 @@
     <ProjectReference Include="..\..\Building Blocks\MJ.Solutions.WebAPI.Core\MJ.Solutions.WebAPI.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>
