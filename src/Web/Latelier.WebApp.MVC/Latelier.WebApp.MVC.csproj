@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Building Blocks\MJ.Solutions.Core\MJ.Solutions.Core.csproj" />
+    <ProjectReference Include="..\..\Building Blocks\MJ.Solutions.WebAPI.Core\MJ.Solutions.WebAPI.Core.csproj" />
   </ItemGroup>
 
 </Project>

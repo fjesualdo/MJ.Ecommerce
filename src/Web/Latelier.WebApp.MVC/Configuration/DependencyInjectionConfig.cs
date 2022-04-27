@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MJ.Solutions.WebAPI.Core.Usuario;
 using Polly;
 using System;
 
@@ -15,7 +16,7 @@ namespace Latelier.WebApp.MVC.Configuration
 		public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddSingleton<IValidationAttributeAdapterProvider, CpfValidationAttributeAdapterProvider>();
-			
+
 			services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
 
 			services.AddHttpClient<IAutenticacaoService, AutenticacaoService>();
@@ -28,7 +29,7 @@ namespace Latelier.WebApp.MVC.Configuration
 
 
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-			services.AddScoped<IUser, AspNetUser>();
+			services.AddScoped<IAspNetUser, AspNetUser>();
 
 			#region Refit
 			//services.AddHttpClient(name: "Refit",

@@ -1,6 +1,6 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using MJ.Solutions.WebAPI.Core.Usuario
 @using Latelier.WebApp.MVC.Extensions
-@inject IUser AppUser
+@inject IAspNetUser AppUser
 
 @if (AppUser.EstaAutenticado())
 {
