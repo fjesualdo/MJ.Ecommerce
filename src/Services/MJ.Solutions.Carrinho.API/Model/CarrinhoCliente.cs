@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MJ.Solutions.Carrinho.API.Model
 {
@@ -21,5 +22,40 @@ namespace MJ.Solutions.Carrinho.API.Model
 			Id = Guid.NewGuid();
 			ClienteId = clienteId;
 		}
+
+		internal void CalcularValorCarrinho()
+		{
+			ValorTotal = Itens.Sum(p => p.CalcularValor());
+		}
+
+		internal bool CarrinhoItemExistente(CarrinhoItem item)
+		{
+			return Itens.Any(p => p.ProdutoId == item.ProdutoId);
+		}
+
+		internal CarrinhoItem ObterPorProdutoId(Guid produtoId)
+		{
+			return Itens.FirstOrDefault(p => p.ProdutoId == produtoId);
+		}
+
+		internal void AdicionarItem(CarrinhoItem item)
+		{
+			if (!item.EhValido()) return;
+
+			item.AssociarCarrinho(Id);
+
+			if (CarrinhoItemExistente(item))
+			{
+				var itemExistente = ObterPorProdutoId(item.ProdutoId);
+				itemExistente.AdicionarUnidades(item.Quantidade);
+
+				item = itemExistente;
+				Itens.Remove(itemExistente);
+			}
+
+			Itens.Add(item);
+			CalcularValorCarrinho();
+		}
+
 	}
 }
