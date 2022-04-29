@@ -1,4 +1,5 @@
 ﻿using Latelier.WebApp.MVC.Extensions;
+using Latelier.WebApp.MVC.Models;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -42,6 +43,11 @@ namespace Latelier.WebApp.MVC.Services
 
 			response.EnsureSuccessStatusCode();
 			return true;
+		}
+
+		protected ResponseResult RetornoOk()
+		{
+			return new ResponseResult();
 		}
 	}
 }
