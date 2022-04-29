@@ -44,25 +44,48 @@ namespace MJ.Solutions.Carrinho.API.Controllers
 
 			if (!OperacaoValida()) return CustomResponse();
 
-			var result = await _context.SaveChangesAsync();
-			if (result <= 0) AdicionarErroProcessamento("Não foi possível persistir os dados no banco");
-
+			await PersistirDados();
 			return CustomResponse();
 		}
 
 		[HttpPut("carrinho/{produtoId}")]
 		public async Task<IActionResult> AtualizarItemCarrinho(Guid produtoId, CarrinhoItem item)
 		{
-			
+			var carrinho = await ObterCarrinhoCliente();
+			var itemCarrinho = await ObterItemCarrinhoValidado(produtoId, carrinho, item);
+			if (itemCarrinho == null) return CustomResponse();
+
+			carrinho.AtualizarUnidades(itemCarrinho, item.Quantidade);
+
+			if (!OperacaoValida()) return CustomResponse();
+
+			_context.CarrinhoItens.Update(itemCarrinho);
+			_context.CarrinhoCliente.Update(carrinho);
+
+			await PersistirDados();
 			return CustomResponse();
 		}
 
 		[HttpDelete("carrinho/{produtoId}")]
 		public async Task<IActionResult> RemoverItemCarrinho(Guid produtoId)
 		{
-			
+			var carrinho = await ObterCarrinhoCliente();
+
+			var itemCarrinho = await ObterItemCarrinhoValidado(produtoId, carrinho);
+			if (itemCarrinho == null) return CustomResponse();
+
+			if (!OperacaoValida()) return CustomResponse();
+
+			carrinho.RemoverItem(itemCarrinho);
+
+			_context.CarrinhoItens.Remove(itemCarrinho);
+			_context.CarrinhoCliente.Update(carrinho);
+
+			await PersistirDados();
 			return CustomResponse();
 		}
+
+
 
 		private async Task<CarrinhoCliente> ObterCarrinhoCliente()
 		{
@@ -107,12 +130,11 @@ namespace MJ.Solutions.Carrinho.API.Controllers
 
 			if (carrinho == null)
 			{
-				AdicionarErroProcessamento("Carrinho não encontrado");
+				AdicionarErroProcessamento("O item não corresponde ao informado");
 				return null;
 			}
 
-			var itemCarrinho = await _context.CarrinhoItens
-					.FirstOrDefaultAsync(i => i.CarrinhoId == carrinho.Id && i.ProdutoId == produtoId);
+			var itemCarrinho = await _context.CarrinhoItens.FirstOrDefaultAsync(i => i.CarrinhoId == carrinho.Id && i.ProdutoId == produtoId);
 
 			if (itemCarrinho == null || !carrinho.CarrinhoItemExistente(itemCarrinho))
 			{
