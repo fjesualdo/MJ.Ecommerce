@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace Latelier.WebApp.MVC.Extensions
+namespace Latelier.WebApp.MVC.ViewComponents
 {
 	public class SummaryViewComponent : ViewComponent
 	{
