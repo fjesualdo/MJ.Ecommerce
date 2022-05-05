@@ -1,5 +1,5 @@
 ﻿using Latelier.WebApp.MVC.Extensions;
-using Latelier.WebApp.MVC.Models;
+using MJ.Solutions.Core.Communication;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;

@@ -1,5 +1,5 @@
-﻿using Latelier.WebApp.MVC.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using MJ.Solutions.Core.Communication;
 using System.Linq;
 
 namespace Latelier.WebApp.MVC.Controllers
@@ -30,6 +30,5 @@ namespace Latelier.WebApp.MVC.Controllers
 		{
 			return ModelState.ErrorCount == 0;
 		}
-
 	}
 }

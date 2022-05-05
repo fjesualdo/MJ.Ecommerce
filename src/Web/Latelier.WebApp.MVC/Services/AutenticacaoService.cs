@@ -1,6 +1,7 @@
 ﻿using Latelier.WebApp.MVC.Extensions;
 using Latelier.WebApp.MVC.Models;
 using Microsoft.Extensions.Options;
+using MJ.Solutions.Core.Communication;
 using System;
 using System.Net.Http;
 using System.Text.Json;

@@ -1,4 +1,5 @@
 ﻿using Latelier.WebApp.MVC.Models;
+using MJ.Solutions.Core.Communication;
 using System;
 using System.Threading.Tasks;
 
