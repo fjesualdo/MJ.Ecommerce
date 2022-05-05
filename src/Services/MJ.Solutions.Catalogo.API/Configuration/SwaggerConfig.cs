@@ -14,7 +14,7 @@ namespace MJ.Solutions.Catalogo.API.Configuration
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo()
 				{
-					Title = "MJ-Solutions Identity API",
+					Title = "MJ-Solutions Catálogo API",
 					Description = "API destinada a controle do catálogo.",
 					Contact = new OpenApiContact() { Name = "Marcelo Jesualdo", Email = "contato@mjsolutions.com" },
 					License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
