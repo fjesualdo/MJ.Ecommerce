@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MJ.Solutions.Pedido.API.Controllers
+namespace MJ.Solutions.Pedidos.API.Controllers
+
 {
 	public class PedidoController : Controller
 	{

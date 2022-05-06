@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.15">
@@ -20,11 +20,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Data\Mappings\" />
+		<ProjectReference Include="..\MJ.Solutions.Pedidos.Domain\MJ.Solutions.Pedidos.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MJ.Solutions.Pedido.Domain\MJ.Solutions.Pedido.Domain.csproj" />
+		<Folder Include="Data\Mappings\" />
+		<Folder Include="Data\Repository\" />
 	</ItemGroup>
-
 </Project>

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace MJ.Solutions.Pedido.API.Configuration
+namespace MJ.Solutions.Pedidos.API.Configuration
 {
 	public static class SwaggerConfig
 	{
@@ -30,20 +30,19 @@ namespace MJ.Solutions.Pedido.API.Configuration
 				});
 
 				c.AddSecurityRequirement(new OpenApiSecurityRequirement
-								{
-										{
-												new OpenApiSecurityScheme
-												{
-														Reference = new OpenApiReference
-														{
-																Type = ReferenceType.SecurityScheme,
-																Id = "Bearer"
-														}
-												},
-												new string[] {}
-										}
-								});
-
+				{
+					{
+						new OpenApiSecurityScheme
+						{
+							Reference = new OpenApiReference
+							{
+								Type = ReferenceType.SecurityScheme,
+								Id = "Bearer"
+							}
+						},
+						new string[] {}
+					}
+				});
 			});
 		}
 

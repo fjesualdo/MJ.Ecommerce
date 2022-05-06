@@ -1,17 +1,31 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MJ.Solutions.Pedidos.Infra.Data;
 using MJ.Solutions.WebAPI.Core.Identidade;
 
-namespace MJ.Solutions.Pedido.API.Configuration
+namespace MJ.Solutions.Pedidos.API.Configuration
 {
 	public static class ApiConfig
 	{
 		public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
 		{
+			services.AddDbContext<PedidosContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
+			services.AddControllers();
+
+			services.AddCors(options =>
+			{
+				options.AddPolicy("Total",
+						builder =>
+								builder
+										.AllowAnyOrigin()
+										.AllowAnyMethod()
+										.AllowAnyHeader());
+			});
 		}
 
 		public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)

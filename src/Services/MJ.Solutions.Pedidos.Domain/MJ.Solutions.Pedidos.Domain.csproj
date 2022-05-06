@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<Folder Include="Pedidos\" />
+		<Folder Include="Vouchers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.Core\MJ.Solutions.Core.csproj" />
+	</ItemGroup>
+
+</Project>

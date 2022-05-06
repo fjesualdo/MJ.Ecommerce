@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MJ.Solutions.Core.Utils;
 using MJ.Solutions.MessageBus;
 
-namespace MJ.Solutions.Pedido.API.Configuration
+namespace MJ.Solutions.Pedidos.API.Configuration
 {
 	public static class MessageBusConfig
 	{
