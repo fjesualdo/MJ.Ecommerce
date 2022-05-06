@@ -1,8 +1,9 @@
 ﻿using MJ.Solutions.Core.Messages;
+using MJ.Solutions.Core.Messaging;
 using System;
 using System.Collections.Generic;
 
-namespace MJ.Solutions.Core.DomainObjects
+namespace MJ.Solutions.Core.Domain
 {
 	public abstract class Entity
 	{
@@ -13,26 +14,26 @@ namespace MJ.Solutions.Core.DomainObjects
 			Id = Guid.NewGuid();
 		}
 
-		private List<Event> _notificacoes;
-		public IReadOnlyCollection<Event> Notificacoes => _notificacoes?.AsReadOnly();
+		private List<Event> _domainEvents;
+		public IReadOnlyCollection<Event> Notificacoes => _domainEvents?.AsReadOnly();
 
-		public void AdicionarEvento(Event evento)
+		public void AddDomainEvent(Event domainEvent)
 		{
-			_notificacoes = _notificacoes ?? new List<Event>();
-			_notificacoes.Add(evento);
+			_domainEvents = _domainEvents ?? new List<Event>();
+			_domainEvents.Add(domainEvent);
 		}
 
-		public void RemoverEvento(Event eventItem)
+		public void RemoveDomainEvent(Event domainEvent)
 		{
-			_notificacoes?.Remove(eventItem);
+			_domainEvents?.Remove(domainEvent);
 		}
 
-		public void LimparEventos()
+		public void ClearDomainEvents()
 		{
-			_notificacoes?.Clear();
+			_domainEvents?.Clear();
 		}
 
-		#region Comparações
+		#region BaseBehaviours
 
 		public override bool Equals(object obj)
 		{
@@ -62,7 +63,7 @@ namespace MJ.Solutions.Core.DomainObjects
 
 		public override int GetHashCode()
 		{
-			return (GetType().GetHashCode() * 907) + Id.GetHashCode();
+			return GetType().GetHashCode() ^ 93 + Id.GetHashCode();
 		}
 
 		public override string ToString()
@@ -70,6 +71,6 @@ namespace MJ.Solutions.Core.DomainObjects
 			return $"{GetType().Name} [Id={Id}]";
 		}
 
-		#endregion Comparações
+		#endregion BaseBehaviours
 	}
 }

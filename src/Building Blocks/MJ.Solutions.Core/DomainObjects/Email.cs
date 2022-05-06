@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using MJ.Solutions.Core.Domain;
+using System.Text.RegularExpressions;
 
 namespace MJ.Solutions.Core.DomainObjects
 {

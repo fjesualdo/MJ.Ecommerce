@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using MJ.Solutions.Clientes.API.Models;
 using MJ.Solutions.Core.Data;
-using MJ.Solutions.Core.DomainObjects;
+using MJ.Solutions.Core.Domain;
 using MJ.Solutions.Core.Mediator;
-using MJ.Solutions.Core.Messages;
+using MJ.Solutions.Core.Messaging;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -61,12 +61,12 @@ namespace MJ.Solutions.Clientes.API.Data
 					.ToList();
 
 			domainEntities.ToList()
-					.ForEach(entity => entity.Entity.LimparEventos());
+					.ForEach(entity => entity.Entity.ClearDomainEvents());
 
 			var tasks = domainEvents
 					.Select(async (domainEvent) =>
 					{
-						await mediator.PublicarEvento(domainEvent);
+						await mediator.PublishEvent(domainEvent);
 					});
 
 			await Task.WhenAll(tasks);

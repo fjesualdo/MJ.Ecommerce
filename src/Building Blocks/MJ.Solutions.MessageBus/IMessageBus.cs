@@ -1,5 +1,6 @@
 ﻿using EasyNetQ;
 using MJ.Solutions.Core.Messages.Integration;
+using MJ.Solutions.Core.Messaging;
 using System;
 using System.Threading.Tasks;
 

@@ -2,7 +2,7 @@
 using MediatR;
 using System;
 
-namespace MJ.Solutions.Core.Messages
+namespace MJ.Solutions.Core.Messaging
 {
 	public abstract class Command : Message, IRequest<ValidationResult>
 	{
@@ -14,9 +14,9 @@ namespace MJ.Solutions.Core.Messages
 			Timestamp = DateTime.Now;
 		}
 
-		public virtual bool EhValido()
+		public virtual bool IsValid()
 		{
-			throw new NotImplementedException();
+			return ValidationResult.IsValid;
 		}
 	}
 }

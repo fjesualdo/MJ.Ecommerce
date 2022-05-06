@@ -1,4 +1,4 @@
-﻿using MJ.Solutions.Core.Messages;
+﻿using MJ.Solutions.Core.Messaging;
 using System;
 
 namespace MJ.Solutions.Clientes.API.Application.Events

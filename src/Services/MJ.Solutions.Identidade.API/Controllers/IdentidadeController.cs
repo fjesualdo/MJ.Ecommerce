@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MJ.Solutions.Core.Messages.Integration;
+using MJ.Solutions.Core.Messaging;
 using MJ.Solutions.Identidade.API.Models;
 using MJ.Solutions.MessageBus;
 using MJ.Solutions.WebAPI.Core.Controllers;

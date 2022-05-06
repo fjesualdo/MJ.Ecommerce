@@ -20,7 +20,7 @@ namespace MJ.Solutions.Clientes.API.Controllers
 		[HttpGet("clientes")]
 		public async Task<IActionResult> Index()
 		{
-			var resultado = await _mediatorHanddler.EnviarComando(new RegistrarClienteCommand(Guid.NewGuid(), "Marcelo", "fjesualdo@gmail.com", "05336153729"));
+			var resultado = await _mediatorHanddler.SendCommand(new RegistrarClienteCommand(Guid.NewGuid(), "Marcelo", "fjesualdo@gmail.com", "05336153729"));
 
 			return CustomResponse(resultado);
 		}

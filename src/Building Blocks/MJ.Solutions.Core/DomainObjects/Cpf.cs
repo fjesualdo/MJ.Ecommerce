@@ -1,4 +1,5 @@
-﻿using MJ.Solutions.Core.Utils;
+﻿using MJ.Solutions.Core.Domain;
+using MJ.Solutions.Core.Utilities;
 
 namespace MJ.Solutions.Core.DomainObjects
 {
@@ -18,7 +19,7 @@ namespace MJ.Solutions.Core.DomainObjects
 
 		public static bool Validar(string cpf)
 		{
-			cpf = cpf.ApenasNumeros(cpf);
+			cpf = cpf.OnlyNumbers();
 
 			if (cpf.Length > 11)
 				return false;

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MJ.Solutions.MessageBus;
 using MJ.Solutions.Clientes.API.Services;
-using MJ.Solutions.Core.Utils;
+using MJ.Solutions.Core.ExtensionMethods;
 
 namespace MJ.Solutons.Clientes.API.Configuration
 {

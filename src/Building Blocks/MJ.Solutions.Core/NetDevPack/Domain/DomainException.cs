@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MJ.Solutions.Core.DomainObjects
+namespace MJ.Solutions.Core.Domain
 {
 	public class DomainException : Exception
 	{

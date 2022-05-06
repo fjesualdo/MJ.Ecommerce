@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using MJ.Solutions.Catalogo.API.Models;
 using MJ.Solutions.Core.Data;
-using MJ.Solutions.Core.Messages;
+using MJ.Solutions.Core.Messaging;
 using System.Linq;
 using System.Threading.Tasks;
 

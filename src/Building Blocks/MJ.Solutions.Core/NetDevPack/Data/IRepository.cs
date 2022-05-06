@@ -1,4 +1,4 @@
-﻿using MJ.Solutions.Core.DomainObjects;
+﻿using MJ.Solutions.Core.Domain;
 using System;
 
 namespace MJ.Solutions.Core.Data

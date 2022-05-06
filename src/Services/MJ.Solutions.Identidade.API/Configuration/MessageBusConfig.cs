@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MJ.Solutions.Core.Utils;
+using MJ.Solutions.Core.ExtensionMethods;
 using MJ.Solutions.MessageBus;
 
 namespace MJ.Solutions.Identidade.API.Configuration

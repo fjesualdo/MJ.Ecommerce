@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using MJ.Solutions.Clientes.API.Application.Commands;
 using MJ.Solutions.Core.Mediator;
 using MJ.Solutions.Core.Messages.Integration;
+using MJ.Solutions.Core.Messaging;
 using MJ.Solutions.MessageBus;
 using System;
 using System.Threading;
@@ -51,7 +52,7 @@ namespace MJ.Solutions.Clientes.API.Services
 			using (var scope = _serviceProvider.CreateScope())
 			{
 				var mediator = scope.ServiceProvider.GetRequiredService<IMediatorHandler>();
-				sucesso = await mediator.EnviarComando(clienteCommand);
+				sucesso = await mediator.SendCommand(clienteCommand);
 			}
 
 			return new ResponseMessage(sucesso);

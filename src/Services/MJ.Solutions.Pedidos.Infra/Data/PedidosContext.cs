@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using MJ.Solutions.Core.Data;
-using MJ.Solutions.Core.DomainObjects;
+using MJ.Solutions.Core.Domain;
 using MJ.Solutions.Core.Mediator;
-using MJ.Solutions.Core.Messages;
+using MJ.Solutions.Core.Messaging;
 using MJ.Solutions.Pedidos.Domain;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MJ.Solutions.Pedidos.Infra.Data
 {
@@ -58,12 +57,12 @@ namespace MJ.Solutions.Pedidos.Infra.Data
 					.ToList();
 
 			domainEntities.ToList()
-					.ForEach(entity => entity.Entity.LimparEventos());
+					.ForEach(entity => entity.Entity.ClearDomainEvents());
 
 			var tasks = domainEvents
 					.Select(async (domainEvent) =>
 					{
-						await mediator.PublicarEvento(domainEvent);
+						await mediator.PublishEvent(domainEvent);
 					});
 
 			await Task.WhenAll(tasks);

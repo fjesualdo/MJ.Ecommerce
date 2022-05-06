@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MJ.Solutions.Core.Messages
+namespace MJ.Solutions.Core.Messaging
 {
 	public abstract class Message
 	{

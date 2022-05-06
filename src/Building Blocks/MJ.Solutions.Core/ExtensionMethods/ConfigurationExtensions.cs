@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace MJ.Solutions.Core.Utils
+namespace MJ.Solutions.Core.ExtensionMethods
 {
 	public static class ConfigurationExtensions
 	{
