@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using MJ.Solutions.Core.Mediator;
+using MJ.Solutions.Pedidos.API.Application.Queries;
 using MJ.Solutions.Pedidos.Domain;
 using MJ.Solutions.Pedidos.Infra.Data;
 using MJ.Solutions.Pedidos.Infra.Data.Repository;
@@ -24,6 +25,7 @@ namespace MJ.Solutions.Pedidos.API.Configuration
 
 			// Application
 			services.AddScoped<IMediatorHandler, MediatorHandler>();
+			services.AddScoped<IVoucherQueries, VoucherQueries>();
 
 			// Data
 			//services.AddScoped<IPedidoRepository, PedidoRepository>();
