@@ -22,9 +22,4 @@
 	<ItemGroup>
 		<ProjectReference Include="..\MJ.Solutions.Pedidos.Domain\MJ.Solutions.Pedidos.Domain.csproj" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Data\Mappings\" />
-		<Folder Include="Data\Repository\" />
-	</ItemGroup>
 </Project>

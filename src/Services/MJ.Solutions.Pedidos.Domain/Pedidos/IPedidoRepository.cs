@@ -13,7 +13,7 @@ namespace MJ.Solutions.Pedidos.Domain.Pedidos
 		void Adicionar(Pedido pedido);
 		void Atualizar(Pedido pedido);
 
-		DbConnection ObterConexao();
+		//DbConnection ObterConexao();
 
 
 		/* Pedido Item */
