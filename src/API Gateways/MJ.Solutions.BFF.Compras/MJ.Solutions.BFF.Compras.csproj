@@ -19,4 +19,8 @@
 		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.WebAPI.Core\MJ.Solutions.WebAPI.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Configuration\" />
+	</ItemGroup>
+	
 </Project>
