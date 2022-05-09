@@ -20,8 +20,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Application\Commands\" />
-		<Folder Include="Application\DTO\" />
 		<Folder Include="Application\Events\" />
 	</ItemGroup>
 
