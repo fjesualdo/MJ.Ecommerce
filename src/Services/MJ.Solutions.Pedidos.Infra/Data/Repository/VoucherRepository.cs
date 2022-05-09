@@ -21,6 +21,11 @@ namespace MJ.Solutions.Pedidos.Infra.Data.Repository
 			return await _context.Vouchers.FirstOrDefaultAsync(p => p.Codigo == codigo);
 		}
 
+		public void Atualizar(Voucher voucher)
+		{
+			_context.Update(voucher);
+		}
+
 		public void Dispose()
 		{
 			_context.Dispose();

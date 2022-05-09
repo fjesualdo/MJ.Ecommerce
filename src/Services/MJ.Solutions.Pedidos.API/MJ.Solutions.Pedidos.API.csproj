@@ -20,10 +20,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Application\Events\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.Core\MJ.Solutions.Core.csproj" />
 		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.MessageBus\MJ.Solutions.MessageBus.csproj" />
 		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.WebAPI.Core\MJ.Solutions.WebAPI.Core.csproj" />

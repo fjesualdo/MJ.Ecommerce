@@ -36,6 +36,7 @@ namespace MJ.Solutions.Pedidos.Domain
     public void DebitarQuantidade()
     {
       Quantidade -= 1;
+
       if (Quantidade >= 1) return;
 
       MarcarComoUtilizado();
