@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using MJ.Solutions.MessageBus;
+using MJ.Solutions.Pedidos.Integration;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -7,9 +8,16 @@ namespace MJ.Solutions.Pedidos.API.Application.Events
 {
 	public class PedidoEventHandler : INotificationHandler<PedidoRealizadoEvent>
 	{
-		Task INotificationHandler<PedidoRealizadoEvent>.Handle(PedidoRealizadoEvent notification, CancellationToken cancellationToken)
+		private readonly IMessageBus _bus;
+
+		public PedidoEventHandler(IMessageBus bus)
 		{
-			throw new System.NotImplementedException();
+			_bus = bus;
+		}
+
+		public async Task Handle(PedidoRealizadoEvent message, CancellationToken cancellationToken)
+		{
+			await _bus.PublishAsync(new PedidoRealizadoIntegrationEvent(message.ClienteId));
 		}
 	}
 }

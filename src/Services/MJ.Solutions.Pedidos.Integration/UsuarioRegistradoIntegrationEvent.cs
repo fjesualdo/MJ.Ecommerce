@@ -1,6 +1,7 @@
-﻿using System;
+﻿using MJ.Solutions.Core.Messages;
+using System;
 
-namespace MJ.Solutions.Core.Messages.Integration
+namespace MJ.Solutions.Pedidos.Integration
 {
 	public class UsuarioRegistradoIntegrationEvent : IntegrationEvent
 	{

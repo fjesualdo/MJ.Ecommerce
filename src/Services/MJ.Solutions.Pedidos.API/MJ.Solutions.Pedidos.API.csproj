@@ -24,6 +24,7 @@
 		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.MessageBus\MJ.Solutions.MessageBus.csproj" />
 		<ProjectReference Include="..\..\Building Blocks\MJ.Solutions.WebAPI.Core\MJ.Solutions.WebAPI.Core.csproj" />
 		<ProjectReference Include="..\MJ.Solutions.Pedidos.Infra\MJ.Solutions.Pedidos.Infra.csproj" />
+		<ProjectReference Include="..\MJ.Solutions.Pedidos.Integration\MJ.Solutions.Pedidos.Integration.csproj" />
 	</ItemGroup>
 
 </Project>

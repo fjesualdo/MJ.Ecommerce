@@ -1,5 +1,5 @@
 ﻿using EasyNetQ;
-using MJ.Solutions.Core.Messages.Integration;
+using MJ.Solutions.Core.Messages;
 using MJ.Solutions.Core.Messaging;
 using Polly;
 using RabbitMQ.Client.Exceptions;
