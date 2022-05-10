@@ -7,28 +7,27 @@ using System.Threading.Tasks;
 
 namespace Latelier.WebApp.MVC.Controllers
 {
-  public class PedidoController : MainController
-  {
-    private readonly IClienteService _clienteService;
-    private readonly IComprasBFFService _comprasBFFService;
+	[Authorize]
+	public class ClienteController : MainController
+	{
+		private readonly IClienteService _clienteService;
 
-    public PedidoController(IClienteService clienteService, IComprasBFFService comprasBffService)
-    {
-      _clienteService = clienteService;
-      _comprasBFFService = comprasBffService;
-    }
+		public ClienteController(IClienteService clienteService)
+		{
+			_clienteService = clienteService;
+		}
 
-    [HttpGet]
-    [Route("endereco-de-entrega")]
-    public async Task<IActionResult> EnderecoEntrega()
-    {
-      var carrinho = await _comprasBFFService.ObterCarrinho();
-      if (carrinho.Itens.Count == 0) return RedirectToAction("Index", "Carrinho");
+		[HttpPost]
+		public async Task<IActionResult> NovoEndereco(EnderecoViewModel endereco)
+		{
+			var response = await _clienteService.AdicionarEndereco(endereco);
 
-      var endereco = await _clienteService.ObterEndereco();
-      var pedido = _comprasBFFService.MapearParaPedido(carrinho, endereco);
+			if (ResponsePossuiErros(response))
+			{
+				TempData["Erros"] = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+			}
 
-      return View(pedido);
-    }
-  }
+			return RedirectToAction("EnderecoEntrega", "Pedido");
+		}
+	}
 }

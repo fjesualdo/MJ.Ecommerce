@@ -17,6 +17,9 @@ namespace Latelier.WebApp.MVC.Services
     Task<ResponseResult> AplicarVoucherCarrinho(string voucher);
 
     // Pedido
+    Task<ResponseResult> FinalizarPedido(PedidoTransacaoViewModel pedidoTransacao);
+    Task<PedidoViewModel> ObterUltimoPedido();
+    Task<IEnumerable<PedidoViewModel>> ObterListaPorClienteId();
     PedidoTransacaoViewModel MapearParaPedido(CarrinhoViewModel carrinho, EnderecoViewModel endereco);
   }
 }

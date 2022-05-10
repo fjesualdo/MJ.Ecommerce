@@ -7,27 +7,74 @@ using System.Threading.Tasks;
 
 namespace Latelier.WebApp.MVC.Controllers
 {
-	[Authorize]
-	public class ClienteController : MainController
+	public class PedidoController : MainController
 	{
 		private readonly IClienteService _clienteService;
+		private readonly IComprasBFFService _comprasBFFService;
 
-		public ClienteController(IClienteService clienteService)
+		public PedidoController(IClienteService clienteService, IComprasBFFService comprasBffService)
 		{
 			_clienteService = clienteService;
+			_comprasBFFService = comprasBffService;
+		}
+
+		[HttpGet]
+		[Route("endereco-de-entrega")]
+		public async Task<IActionResult> EnderecoEntrega()
+		{
+			var carrinho = await _comprasBFFService.ObterCarrinho();
+			if (carrinho.Itens.Count == 0) return RedirectToAction("Index", "Carrinho");
+
+			var endereco = await _clienteService.ObterEndereco();
+			var pedido = _comprasBFFService.MapearParaPedido(carrinho, endereco);
+
+			return View(pedido);
+		}
+
+		[HttpGet]
+		[Route("pagamento")]
+		public async Task<IActionResult> Pagamento()
+		{
+			var carrinho = await _comprasBFFService.ObterCarrinho();
+			if (carrinho.Itens.Count == 0) return RedirectToAction("Index", "Carrinho");
+
+			var pedido = _comprasBFFService.MapearParaPedido(carrinho, null);
+
+			return View(pedido);
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> NovoEndereco(EnderecoViewModel endereco)
+		[Route("finalizar-pedido")]
+		public async Task<IActionResult> FinalizarPedido(PedidoTransacaoViewModel pedidoTransacao)
 		{
-			var response = await _clienteService.AdicionarEndereco(endereco);
+			if (!ModelState.IsValid) return View("Pagamento", _comprasBFFService.MapearParaPedido(
+					await _comprasBFFService.ObterCarrinho(), null));
 
-			if (ResponsePossuiErros(response))
+			var retorno = await _comprasBFFService.FinalizarPedido(pedidoTransacao);
+
+			if (ResponsePossuiErros(retorno))
 			{
-				TempData["Erros"] = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)).ToList();
+				var carrinho = await _comprasBFFService.ObterCarrinho();
+				if (carrinho.Itens.Count == 0) return RedirectToAction("Index", "Carrinho");
+
+				var pedidoMap = _comprasBFFService.MapearParaPedido(carrinho, null);
+				return View("Pagamento", pedidoMap);
 			}
 
-			return RedirectToAction("EnderecoEntrega", "Pedido");
+			return RedirectToAction("PedidoConcluido");
+		}
+
+		[HttpGet]
+		[Route("pedido-concluido")]
+		public async Task<IActionResult> PedidoConcluido()
+		{
+			return View("ConfirmacaoPedido", await _comprasBFFService.ObterUltimoPedido());
+		}
+
+		[HttpGet("meus-pedidos")]
+		public async Task<IActionResult> MeusPedidos()
+		{
+			return View(await _comprasBFFService.ObterListaPorClienteId());
 		}
 	}
 }
