@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MJ.Solutions.Pagamento.API
+namespace MJ.Solutions.Pagamentos.API
 {
 	public class Program
 	{

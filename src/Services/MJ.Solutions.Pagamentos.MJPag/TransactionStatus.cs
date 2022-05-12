@@ -1,4 +1,4 @@
-﻿namespace MJ.Solutions.Pagamento.MJPag
+﻿namespace MJ.Solutions.Pagamentos.MJPag
 {
 	public enum TransactionStatus
 	{

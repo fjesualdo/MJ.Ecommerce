@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MJ.Solutions.Pagamento.MJPag
+namespace MJ.Solutions.Pagamentos.MJPag
 {
 	public class Transaction
 	{

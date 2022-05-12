@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MJ.Solutions.Pagamento.MJPag
+namespace MJ.Solutions.Pagamentos.MJPag
 {
 	public class CardHash
 	{

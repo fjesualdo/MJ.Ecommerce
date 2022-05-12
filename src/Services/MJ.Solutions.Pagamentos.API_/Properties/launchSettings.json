@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "MJ.Solutions.Pagamento.API": {
+    "MJ.Solutions.Pagamentos.API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
