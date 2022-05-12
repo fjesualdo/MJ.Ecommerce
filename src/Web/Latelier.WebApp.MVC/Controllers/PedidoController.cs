@@ -47,8 +47,10 @@ namespace Latelier.WebApp.MVC.Controllers
 		[Route("finalizar-pedido")]
 		public async Task<IActionResult> FinalizarPedido(PedidoTransacaoViewModel pedidoTransacao)
 		{
-			if (!ModelState.IsValid) return View("Pagamento", _comprasBFFService.MapearParaPedido(
-					await _comprasBFFService.ObterCarrinho(), null));
+			if (!ModelState.IsValid)
+			{
+				return View("Pagamento", _comprasBFFService.MapearParaPedido(await _comprasBFFService.ObterCarrinho(), null));
+			}
 
 			var retorno = await _comprasBFFService.FinalizarPedido(pedidoTransacao);
 

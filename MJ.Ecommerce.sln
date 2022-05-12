@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MJ.Solutions.Pedidos.Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MJ.Solutions.Pedidos.Infra", "src\Services\MJ.Solutions.Pedidos.Infra\MJ.Solutions.Pedidos.Infra.csproj", "{8281628C-4F92-4F84-BD4A-51F48F60071A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJ.Solutions.Pedidos.Integration", "src\Services\MJ.Solutions.Pedidos.Integration\MJ.Solutions.Pedidos.Integration.csproj", "{E5F316B7-71B9-458C-9D54-D723EB47867A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MJ.Solutions.Pedidos.Integration", "src\Services\MJ.Solutions.Pedidos.Integration\MJ.Solutions.Pedidos.Integration.csproj", "{E5F316B7-71B9-458C-9D54-D723EB47867A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

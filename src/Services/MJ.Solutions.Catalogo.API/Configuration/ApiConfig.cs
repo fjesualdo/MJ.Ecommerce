@@ -13,8 +13,7 @@ namespace MJ.Solutions.Catalogo.API.Configuration
 	{
 		public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
 		{
-			services.AddDbContext<CatalogoContext>(options =>
-					options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+			services.AddDbContext<CatalogoContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddControllers();
 
